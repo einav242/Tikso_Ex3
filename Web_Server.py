@@ -21,7 +21,7 @@ def main():
             outputdata = f.read()
             # Send one HTTP header line into socket
             # Fill in start
-            connectionSocket.send('\nHTTP/1.1 200 OK\n\n'.encode())
+            connectionSocket.send('HTTP/1.1 200 OK\r\n\r\n'.encode())
             # Fill in end
 
             # Send the content of the requested file to the client
@@ -33,7 +33,7 @@ def main():
         except IOError:
             # Send response message for file not found
             # Fill in start
-            connectionSocket.send('\nHTTP/1.1 404 Not Found\n\n'.encode())
+            connectionSocket.send('HTTP/1.1 404 Not Found\n\n'.encode())
             # Fill in end
             # Close client socket
             # Fill in start
